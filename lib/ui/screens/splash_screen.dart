@@ -30,8 +30,10 @@ void initState(){
   Widget build(BuildContext context) {
     return Scaffold(
       body: ScreenBackground(child:  Center(
+
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+
           children: [
             SvgPicture.asset(AssetsPath.logoSvg,width: 120,),
 

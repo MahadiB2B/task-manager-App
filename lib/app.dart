@@ -15,6 +15,7 @@ class _TaskManagerAppState extends State<TaskManagerApp> {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        colorSchemeSeed: AppColors.themeColor,
         textTheme:const  TextTheme(),
         inputDecorationTheme: _inputDecorationTheme(),
         elevatedButtonTheme: _elevatedButtonThemeData(),
