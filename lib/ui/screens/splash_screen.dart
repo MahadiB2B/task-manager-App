@@ -29,8 +29,8 @@ void initState(){
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ScreenBackground(child:  Center(
-
+      body: ScreenBackground(
+        child:  Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
 
