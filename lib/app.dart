@@ -16,6 +16,7 @@ class _TaskManagerAppState extends State<TaskManagerApp> {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorSchemeSeed: AppColors.themeColor,
+
         textTheme:const  TextTheme(),
         inputDecorationTheme: _inputDecorationTheme(),
         elevatedButtonTheme: _elevatedButtonThemeData(),
@@ -42,6 +43,7 @@ class _TaskManagerAppState extends State<TaskManagerApp> {
   InputDecorationTheme _inputDecorationTheme(){
     return InputDecorationTheme(
         fillColor: Colors.white,
+      hintStyle: TextStyle(fontWeight: FontWeight.w300),
         filled: true,
         border:_inputBorder(),
       enabledBorder: _inputBorder(),

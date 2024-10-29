@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:task_manager/ui/screens/main_bottom_nav_bar_screen.dart';
 import 'package:task_manager/ui/screens/sign_up_screen.dart';
 import 'package:task_manager/ui/widgets/screen_background.dart';
 
@@ -96,7 +97,10 @@ class _SignINScreenState extends State<SignINScreen> {
  );
   }
   void _onTapNextButton(){
-    //Todo: on Tap NextButton
+ Navigator.pushAndRemoveUntil(context,
+     MaterialPageRoute(
+         builder: (context) =>const MainBottomNavBarScreen()),
+         (value) => false);
   }
   void _onTapForgotPasswordButton(){
   Navigator.push(context, MaterialPageRoute(builder: (context)=> const ForgotPasswordEmailAddress()));
