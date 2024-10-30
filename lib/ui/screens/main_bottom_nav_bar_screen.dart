@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:task_manager/ui/screens/cancelled_task_screen.dart';
+import 'package:task_manager/ui/screens/completed_task_screen.dart';
+import 'package:task_manager/ui/screens/new_task_screen.dart';
+import 'package:task_manager/ui/screens/progress_task_screen.dart';
+import 'package:task_manager/ui/utilis/app_colors.dart';
 
 class MainBottomNavBarScreen extends StatefulWidget {
   const MainBottomNavBarScreen({super.key});
@@ -8,10 +13,58 @@ class MainBottomNavBarScreen extends StatefulWidget {
 }
 
 class _MainBottomNavBarScreenState extends State<MainBottomNavBarScreen> {
+  int _selectedIndex =0;
+  final List<Widget> _screens =const[
+    NewTaskScreen(),
+    CompletedTaskScreen(),
+    CancelledTaskScreen(),
+    ProgressTaskScreen(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: AppColors.themeColor,
+        title:  Row(
+          children: [
+            const CircleAvatar(
+              radius: 16,
+              backgroundColor: Colors.white,
+            ),
+            const SizedBox(width: 16,),
+            const Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+             children: [
+               Text("Mahadi Hasan",
+                 style: TextStyle(
+                   fontSize: 16,
+                     color: Colors.white,
+                 fontWeight: FontWeight.w600),
+               ),
+               Text("1starmahadi@gmail.com",
+                 style: TextStyle(
+                     fontSize: 12,
+                     color: Colors.white),
+               )
+             ],
+            ),
+            ),
+            IconButton(
+              onPressed: (){}, icon:const Icon(Icons.logout)),
+          ],
+        ),
+
+      ),
+      body: _screens[_selectedIndex],
       bottomNavigationBar: NavigationBar(
+        selectedIndex: _selectedIndex,
+        onDestinationSelected: (int index){
+          _selectedIndex =index;
+          setState(() {
+
+          });
+        },
         destinations:const [
           NavigationDestination(
               icon: Icon(Icons.new_label),
