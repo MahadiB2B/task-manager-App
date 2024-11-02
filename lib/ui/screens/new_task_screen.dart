@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:task_manager/ui/screens/add_new_task_screen.dart';
 
+import '../widgets/task_summary_card.dart';
+
 class NewTaskScreen extends StatelessWidget {
   const NewTaskScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const Center(child: Text("New"),),
+      body:  Column(
+        children: [
+          _buildSummarySection(),
+        ],
+      ),
      floatingActionButton: FloatingActionButton(
        onPressed: (){
 Navigator.push(
@@ -15,8 +21,41 @@ Navigator.push(
     MaterialPageRoute(builder:
         (context)=> const AddNewTaskScreen()));
        },
-       child: Icon(Icons.add),),
+       child: const Icon(Icons.add),),
     );
   }
+
+  Widget _buildSummarySection() {
+    return const Padding(
+          padding: EdgeInsets.all(8),
+
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                 TaskSummaryCard(
+                   count:9,
+                   title:"New",
+                 ),
+                  TaskSummaryCard(
+                    count:9,
+                    title:"Completed",
+                  ),
+                  TaskSummaryCard(
+                    count:9,
+                    title:"Cancelled",
+                  ),
+                  TaskSummaryCard(
+                    count:9,
+                    title:"Progress",
+                  ),
+                ],
+              ),
+            ),
+
+        );
+  }
 }
+
+
 

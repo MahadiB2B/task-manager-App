@@ -15,25 +15,30 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
 appBar: TMAppBar(),
       body: Padding(
         padding: const EdgeInsets.all(24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 42,),
-            Text("Add New Task",style: Theme.of(context).textTheme.titleLarge,),
-            SizedBox(height: 16,),
-            TextFormField(
-              decoration: InputDecoration(
-                hintText: "Title",
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 42,),
+              Text("Add New Task",style: Theme.of(context).textTheme.titleLarge,),
+              SizedBox(height: 16,),
+              TextFormField(
+                decoration: InputDecoration(
+                  hintText:"Title",
+                  label: Text("Title"),
+                ),
               ),
-            ),
-            SizedBox(height: 8,),
-            TextFormField(
-              maxLines: 5,
-              decoration: InputDecoration(
-                hintText: "Description",
+              SizedBox(height: 8,),
+              TextFormField(
+                maxLines: 5,
+                decoration: InputDecoration(
+                  hintText:"Description",
+                ),
               ),
-            ),
-          ],
+              SizedBox(height: 16,),
+              ElevatedButton(onPressed: (){}, child: Icon(Icons.arrow_circle_right_outlined))
+            ],
+          ),
         ),
       ),
     );
