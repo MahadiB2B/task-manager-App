@@ -12,7 +12,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: TMAppBar(
+      appBar: const TMAppBar(
        isProfileScreenOpen: true,
       ),
       body: SingleChildScrollView(
@@ -29,36 +29,36 @@ class _ProfileScreenState extends State<ProfileScreen> {
               _buildPhotoPicker(),
               const SizedBox(height:16),
               TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: 'Email'
                 ),
               ),
               const SizedBox(height: 8,),
               TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     hintText: 'First name'
                 ),
               ),
               const SizedBox(height: 8,),
               TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     hintText: 'Last name'
                 ),
               ),
               const SizedBox(height: 8,),
               TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     hintText: 'Phone'
                 ),
               ),
               const SizedBox(height: 8,),
               TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     hintText: 'Password'
                 ),
               ),
               const SizedBox(height: 16,),
-             ElevatedButton(onPressed: (){}, child: Icon(Icons.arrow_circle_right_outlined)),
+             ElevatedButton(onPressed: (){}, child: const Icon(Icons.arrow_circle_right_outlined)),
             const SizedBox(height: 16,),
             ],
           ),
@@ -79,13 +79,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
           Container(
             height: 55,
             width: 100,
-            decoration: BoxDecoration(color: Colors.grey,
+            decoration: const BoxDecoration(color: Colors.grey,
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(8),
               bottomLeft: Radius.circular(8),
             )),
             alignment: Alignment.center,
-            child: Text('Photo',
+            child: const Text('Photo',
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.w600,
@@ -93,7 +93,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),),
           ),
           const SizedBox(width: 8,),
-          Text("Selected Photo"),
+          const Text("Selected Photo"),
         ],
       ),
     );
