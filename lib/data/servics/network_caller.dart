@@ -4,8 +4,8 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart';
 import 'package:task_manager/data/models/network_response.dart';
 
-class NerworkCaller{
- static Future<NetworkResponse> getRequest(String url)async{
+class NetworkCaller{
+ static Future<NetworkResponse> getRequest({required String url})async{
   try{  Uri uri =Uri.parse(url);
     debugPrint(url);
   final Response response = await get(uri);
@@ -32,17 +32,24 @@ return NetworkResponse(
     );
   }
   }
- static Future<NetworkResponse> postRequest(String url,Map<String,dynamic>?body)async{
+ static Future<NetworkResponse> postRequest({required String url,Map<String,dynamic>?body})async{
    try{  Uri uri =Uri.parse(url);
    debugPrint(url);
    final Response response = await post(
        uri,
        headers: {
          'Content-Type':'application/json'},
-       body:jsonEncode(body));
+       body:jsonEncode(body),);
    printResponse(url, response);
    if(response.statusCode ==200){
      final decodeData = jsonDecode(response.body);
+     if (decodeData['status']=='fail'){
+       return NetworkResponse(
+         isSuccess: false,
+         statusCode: response.statusCode,
+       errorMessage: decodeData['data'],
+       );
+     }
      return NetworkResponse(
        isSuccess: true,
        statusCode: response.statusCode,
