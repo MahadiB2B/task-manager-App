@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:task_manager/data/models/network_response.dart';
 import 'package:task_manager/data/servics/network_caller.dart';
 import 'package:task_manager/data/utils/utils.dart';
+import 'package:task_manager/ui/controllers/auth_controller.dart';
 import 'package:task_manager/ui/screens/main_bottom_nav_bar_screen.dart';
 import 'package:task_manager/ui/screens/sign_up_screen.dart';
 import 'package:task_manager/ui/widgets/centered_circular_progress_indicator.dart';
@@ -148,6 +149,7 @@ bool _inProgress =false;
     final NetworkResponse response =await NetworkCaller.postRequest(url: Urls.login,body: requestBody);
     _inProgress = false;
     if (response.isSuccess) {
+      await AuthController.saveAccessToken(response.responseData["token"]);
       Navigator.pushAndRemoveUntil(context,
           MaterialPageRoute(
               builder: (context) =>const MainBottomNavBarScreen()),
